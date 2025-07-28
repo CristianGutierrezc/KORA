@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KŌRA - Bienvenido</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      color: white;
+    }
+
+    /* Imagen de fondo tipo hero */
+    .hero-background {
+      background: url('img/hero-kora.png') no-repeat center top;
+      background-size: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .contenido-index {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .contenido-index h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .btn {
+      padding: 0.8rem 2rem;
+      margin: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid white;
+      cursor: pointer;
+      font-weight: bold;
+      backdrop-filter: blur(3px);
+    }
+
+    .btn:hover {
+      background-color: white;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- H1 oculto para SEO -->
+  <h1 style="position:absolute; left:-9999px;">KŌRA - Moda urbana futurista</h1>
+
+  <!-- Fondo de imagen tipo portada -->
+  <div class="hero-background"></div>
+
+  <!-- Botones de navegación -->
+  <div class="contenido-index">
+    <button class="btn" onclick="window.location.href='tienda.html'">Entrar a la tienda</button>
+    <button class="btn" onclick="window.location.href='login.html'">Admin</button>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iniciar sesión - KŌRA</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+
+  <!-- SEO oculto -->
+  <h1 style="position:absolute; left:-9999px;">Inicio de sesión para administrador en KŌRA</h1>
+
+  <!-- Formulario de acceso -->
+  <main style="padding:2rem; max-width:400px; margin:auto;">
+    <h2>Inicio de sesión para administrador</h2>
+
+    <form id="form-login">
+      <input type="email" id="email" placeholder="Correo electrónico" required /><br/><br/>
+      <input type="password" id="password" placeholder="Contraseña" required /><br/><br/>
+      <button type="submit">Entrar</button>
+    </form>
+
+    <p>Usuarios no necesitan registrarse para usar la tienda.</p>
+  </main>
+
+  <!-- Script de validación -->
+  <script>
+    const form = document.getElementById('form-login');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value.trim().toLowerCase();
+      const password = document.getElementById('password').value.trim();
+
+      const adminEmail = 'cristianguti.93@gmail.com';
+      const adminPass = '1234';
+
+      // Validación estricta para el único admin
+      if (email === adminEmail && password === adminPass) {
+        const usuario = {
+          nombre: 'Administrador',
+          email,
+          rol: 'admin'
+        };
+
+        localStorage.setItem('sesionActiva', JSON.stringify(usuario));
+        alert('Bienvenido, administrador.');
+        window.location.href = 'admin.html';
+      } else {
+        alert('Acceso denegado. Solo el administrador puede iniciar sesión.');
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - KŌRA</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+
+  <!-- Menú de navegación -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">KŌRA Admin</div>
+      <ul class="nav-links">
+        <li><a href="tienda.html">Volver a tienda</a></li>
+        <li><button id="cargar-ejemplo">Cargar productos de ejemplo</button></li>
+        <li><button id="vaciar-lista">Vaciar lista</button></li>
+        <li><button id="publicar-tienda">Publicar en tienda</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Formulario de productos -->
+  <main style="padding:2rem;">
+    <h2>Gestión de Productos</h2>
+    <form id="form-producto">
+      <input type="text" id="nombre" placeholder="Nombre" required />
+      <input type="text" id="descripcion" placeholder="Descripción" required />
+      <input type="number" id="precio" placeholder="Precio (€)" step="0.01" required />
+      <input type="url" id="imagen" placeholder="URL de imagen" required />
+      <input type="hidden" id="producto-id" />
+      <button type="submit">Guardar</button>
+    </form>
+
+    <!-- Zona de visualización -->
+    <section id="lista-admin" class="grid-productos" style="margin-top:2rem;"></section>
+  </main>
+
+  <!-- Carga el JS modular correctamente -->
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
