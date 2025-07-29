@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Si no hay sesión, mostrar botón de login en userIcon
     if (userIcon) {
       userIcon.innerHTML = `
-        <a href="login.html" class="btn-login-link">👤 Iniciar</a>
+        <a href="login.html" class="btn-login-link">👤 Iniciar sesión</a>
       `;
     }
 
