@@ -609,7 +609,7 @@ button:focus, a:focus {
   border: 2px solid var(--blanco);
   border-radius: 6px;
   background-color: transparent;
-  color: var(--negro);
+  color: var(--blanco);
   font-weight: bold;
   text-decoration: none;
   transition: all 0.3s ease;
