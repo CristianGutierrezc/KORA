@@ -605,7 +605,7 @@ button:focus, a:focus {
 }
 .btn-login-link {
   padding: 0.4rem 0.8rem;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   border: 2px solid var(--negro);
   border-radius: 6px;
   background-color: transparent;
@@ -613,6 +613,18 @@ button:focus, a:focus {
   font-weight: bold;
   text-decoration: none;
   transition: all 0.3s ease;
+  white-space: nowrap;        /* Evita que el texto se parta */
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 480px) {
+  .btn-login-link {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+  }
 }
 
 .btn-login-link:hover {
