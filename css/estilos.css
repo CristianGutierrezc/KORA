@@ -779,3 +779,22 @@ body.modo-oscuro #form-producto button {
     display: none; /* oculta el link dentro del menú móvil */
   }
 }
+
+@media (min-width: 1024px) {
+  body.admin-page main {
+    padding-top: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .icons {
+    justify-content: flex-end;
+    width: 100%;
+    padding-top: 0.5rem;
+  }
+
+  .btn-login-link {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
