@@ -746,3 +746,24 @@ body.modo-oscuro #form-producto button {
     font-size: 1rem;
   }
 }
+
+/* Versión móvil: alinear cerrar sesión con carrito */
+@media (max-width: 768px) {
+  .cerrar-sesion-icon {
+    color: var(--blanco);
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    text-wrap: nowrap;
+  }
+
+  .icons {
+    gap: 1rem;
+    align-items: center;
+  }
+
+  #cerrar-sesion {
+    display: none; /* oculta el link dentro del menú móvil */
+  }
+}
