@@ -606,7 +606,7 @@ button:focus, a:focus {
 .btn-login-link {
   padding: 0.4rem 0.8rem;
   font-size: 0.9rem;
-  border: 2px solid var(--negro);
+  border: 2px solid var(--blanco);
   border-radius: 6px;
   background-color: transparent;
   color: var(--negro);
