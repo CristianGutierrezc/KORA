@@ -1,13 +1,39 @@
 import { obtenerProductos } from './storage.js';
-
+function cargarEjemploSiNoHayProductos() {
+  const productos = JSON.parse(localStorage.getItem("productos"));
+  if (!productos || productos.length === 0) {
+    const ejemplo = [
+      {
+        id: crypto.randomUUID(),
+        nombre: 'Chaqueta Matrix',
+        descripcion: 'Chaqueta oversize con cuello',
+        precio: 129.99,
+        imagen: 'img/producto3.png'
+      },
+      {
+        id: crypto.randomUUID(),
+        nombre: 'Zapatillas Null',
+        descripcion: 'Diseño unisex',
+        precio: 159.99,
+        imagen: 'img/producto4.png'
+      }
+    ];
+    localStorage.setItem("productos", JSON.stringify(ejemplo));
+  }
+}
 document.addEventListener('DOMContentLoaded', () => {
+  cargarEjemploSiNoHayProductos(); // 👈 Cargar ejemplos si está vacío
+
   const contenedor = document.getElementById('contenedor-productos');
   const mensajeVacio = document.getElementById('mensaje-vacio');
   const totalProductos = document.getElementById('total-productos');
   const totalPrecio = document.getElementById('total-precio');
   const inputBusqueda = document.getElementById('busqueda-productos');
 
-  const productos = obtenerProductos();
+  const productos = obtenerProductos(); // 👈 Esto debe ir después de cargar los ejemplos
+
+  // ... resto del código igual ...
+
 
   // Renderizado de productos filtrados
   function renderProductos(lista) {

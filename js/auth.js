@@ -7,10 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Si hay sesión activa...
   if (sesion) {
     //  Mostrar acceso al panel admin si el usuario es administrador
+    const adminLinkMobile = document.getElementById('admin-link-mobile');
     if (sesion.rol === 'admin' && adminLink) {
       adminLink.style.display = 'inline-block';
     }
-
+if (sesion.rol === 'admin' && adminLinkMobile) {
+  adminLinkMobile.style.display = 'block';
+}
     //  Cambiar ícono de usuario a "Cerrar sesión"
     if (userIcon) {
       userIcon.textContent = 'Cerrar sesión';
@@ -27,7 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     //  Si no hay sesión, mostrar opción de iniciar sesión/registro
     if (userIcon) {
-      userIcon.innerHTML = '<a href="login.html">Iniciar sesión / Registrarse</a>';
+     userIcon.innerHTML = `
+  <a href="login.html" class="btn-login-link">👤 Iniciar sesión</a>
+`;
+
     }
   }
 });

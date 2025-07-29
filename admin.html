@@ -6,23 +6,29 @@
   <title>Admin - KŌRA</title>
   <link rel="stylesheet" href="css/estilos.css" />
 </head>
-<body>
+<body class="admin-page">
 
   <!-- Menú de navegación -->
   <header>
-    <nav class="navbar">
-      <div class="logo">KŌRA Admin</div>
-      <ul class="nav-links">
-        <li><a href="tienda.html">Volver a tienda</a></li>
-        <li><button id="cargar-ejemplo">Cargar productos de ejemplo</button></li>
-        <li><button id="vaciar-lista">Vaciar lista</button></li>
-        <li><button id="publicar-tienda">Publicar en tienda</button></li>
-      </ul>
-    </nav>
+ <nav class="navbar admin-navbar">
+  <div class="admin-topbar">
+    <div class="logo">KŌRA Admin</div>
+    <button id="admin-menu-toggle" class="menu-toggle">☰</button>
+  </div>
+
+  <div class="admin-menu" id="admin-menu">
+    <button id="admin-menu-close" class="close-menu">✕</button>
+    <a href="tienda.html" class="btn-admin-nav">Volver a tienda</a>
+    <button id="cargar-ejemplo" class="btn-admin-nav" type="button">Cargar productos de ejemplo</button>
+    <button id="vaciar-lista" class="btn-admin-nav" type="button">Vaciar lista</button>
+    <button id="publicar-tienda" class="btn-admin-nav" type="button">Publicar en tienda</button>
+  </div>
+</nav>
+
   </header>
 
   <!-- Formulario de productos -->
-  <main style="padding:2rem;">
+  <main>
     <h2>Gestión de Productos</h2>
     <form id="form-producto">
       <input type="text" id="nombre" placeholder="Nombre" required />
@@ -39,5 +45,6 @@
 
   <!-- Carga el JS modular correctamente -->
   <script type="module" src="js/admin.js"></script>
+<script src="js/modo.js"></script>
 </body>
 </html>

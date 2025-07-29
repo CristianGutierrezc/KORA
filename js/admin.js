@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Función reutilizable para validar campos
+  // Validación de campos
   function camposValidos(p) {
     if (!p.nombre || !p.descripcion || !p.precio || !p.imagen) {
       alert('Todos los campos son obligatorios.');
@@ -91,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!camposValidos(nuevoProducto)) return;
 
     if (idField.value) {
-      // Editar producto existente
       adminProductos = adminProductos.map(p => (p.id === nuevoProducto.id ? nuevoProducto : p));
     } else {
       adminProductos.push(nuevoProducto);
@@ -166,6 +165,19 @@ document.addEventListener('DOMContentLoaded', () => {
       guardarProductos(adminProductos);
       alert('Productos publicados en tienda.');
     }
+  });
+
+  // ✅ Menú hamburguesa móvil
+  const toggleAdminMenu = document.getElementById("admin-menu-toggle");
+  const closeAdminMenu = document.getElementById("admin-menu-close");
+  const adminMenu = document.getElementById("admin-menu");
+
+  toggleAdminMenu?.addEventListener("click", () => {
+    adminMenu.classList.add("activo");
+  });
+
+  closeAdminMenu?.addEventListener("click", () => {
+    adminMenu.classList.remove("activo");
   });
 
   renderLista();

@@ -31,8 +31,13 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
+/* MAIN corregido */
 main {
-  padding-top: 120px;
+  padding-top: 30px; /* aumenta el espacio superior para escritorio */
+  padding-bottom: 2rem;
+}
+#form-producto {
+  margin-top: 1rem;
 }
 
 /* NAVBAR */
@@ -386,11 +391,11 @@ footer {
 .menu-toggle {
   display: none;
   font-size: 2rem;
-  cursor: pointer;
-  z-index: 2001;
   background: none;
   border: none;
   color: var(--blanco);
+  cursor: pointer;
+  z-index: 2001;
 }
 
 .menu-mobile {
@@ -444,10 +449,300 @@ body.menu-abierto {
   }
 
   .banner {
-    height: 65vh;
+    height: 75vh;
   }
 
   .banner img {
     object-position: center;
+  }
+}
+
+/* ADMIN NAVBAR */
+.admin-navbar {
+  background-color: var(--negro);
+  width: 100%;
+  padding: 1.5rem 1rem 1rem 1rem; /* más padding inferior para evitar solape */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Admin navbar reorganizada con hamburguesa */
+.admin-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.admin-menu {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+.close-menu {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--blanco); /* SIEMPRE blanca */
+  align-self: flex-end;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  z-index: 3000;
+}
+.close-menu:hover {
+  color: var(--acento);
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+.btn-admin-nav {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  text-align: center;
+  border: 2px solid var(--blanco);
+  background-color: var(--negro);
+  color: var(--blanco);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  width: 100%;
+}
+.btn-admin-nav:hover {
+  background-color: var(--acento);
+  color: var(--negro);
+  border-color: var(--acento);
+}
+/* Modo oscuro correcto para botones del admin */
+body.modo-oscuro .btn-admin-nav {
+  background-color: transparent !important;
+  color: var(--blanco) !important;
+  border-color: var(--blanco);
+}
+
+body.modo-oscuro .btn-admin-nav:hover {
+  background-color: var(--acento) !important;
+  color: var(--negro) !important;
+  border-color: var(--acento);
+}
+.admin-menu.activo {
+  display: flex;
+}
+.admin-menu {
+  display: none;
+  ...
+}
+@media (min-width: 769px) {
+  .admin-menu {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .menu-toggle,
+  .close-menu {
+    display: none !important;
+  }
+
+  .btn-admin-nav {
+    width: auto;
+  }
+}
+
+
+button:focus, a:focus {
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+}
+
+.btn-volver-movil {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .btn-volver-movil {
+    display: inline-block;
+    margin: 1rem auto 0 auto;
+    padding: 0.6rem 1.2rem;
+    border: 2px solid var(--negro);
+    background-color: transparent;
+    color: var(--negro);
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 6px;
+    text-decoration: none;
+    width: fit-content;
+    display: block;
+  }
+
+  body.modo-oscuro .btn-volver-movil {
+    color: var(--blanco);
+    border-color: var(--blanco);
+  }
+
+  body.modo-oscuro .btn-volver-movil:hover {
+    background-color: var(--acento);
+    color: var(--negro);
+    border-color: var(--acento);
+  }
+
+  .btn-volver-movil:hover {
+    background-color: var(--acento);
+    color: var(--negro);
+    border-color: var(--acento);
+  }
+}
+.btn-login-link {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.95rem;
+  border: 2px solid var(--negro);
+  border-radius: 6px;
+  background-color: transparent;
+  color: var(--negro);
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-login-link:hover {
+  background-color: var(--acento);
+  color: var(--negro);
+  border-color: var(--acento);
+}
+
+body.modo-oscuro .btn-login-link {
+  color: var(--blanco);
+  border-color: var(--blanco);
+}
+
+body.modo-oscuro .btn-login-link:hover {
+  background-color: var(--acento);
+  color: var(--negro);
+  border-color: var(--acento);
+}
+/* Mostrar el menú del admin siempre en escritorio */
+@media (min-width: 769px) {
+  .admin-menu {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .menu-toggle, .close-menu {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  main {
+    padding-top: 150px; /* Aún más espacio en móvil por hamburguesa */
+  }
+}
+/* FORMULARIO ADMIN BONITO Y RESPONSIVE */
+#form-producto {
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#form-producto input[type="text"],
+#form-producto input[type="number"],
+#form-producto input[type="url"] {
+  padding: 0.8rem;
+  border: 2px solid var(--negro);
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  flex: 1 1 220px;
+  background-color: transparent;
+  color: inherit;
+}
+
+body.modo-oscuro #form-producto input[type="text"],
+body.modo-oscuro #form-producto input[type="number"],
+body.modo-oscuro #form-producto input[type="url"] {
+  border-color: var(--blanco);
+  color: var(--blanco);
+}
+
+#form-producto button {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid var(--negro);
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--negro);
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1 1 100%;
+  max-width: 200px;
+}
+
+body.modo-oscuro #form-producto button {
+  border-color: var(--blanco);
+  color: var(--blanco);
+}
+
+#form-producto button:hover {
+  background-color: var(--acento);
+  color: var(--negro);
+  border-color: var(--acento);
+}
+@media (min-width: 1024px) {
+  body.admin-page main {
+    padding-top: 100px; /* ajusta según la altura real de tu header + botones */
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 1rem;
+  }
+
+  .navbar .logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--blanco);
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .nav-mobile-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-mobile-right span,
+  .nav-mobile-right .cart-icon {
+    color: var(--blanco);
+    font-size: 1rem;
   }
 }
